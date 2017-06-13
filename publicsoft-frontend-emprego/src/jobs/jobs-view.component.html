@@ -1,0 +1,65 @@
+<main>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Vizualização Oportunidade</h2>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{job.titulo}}
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-2"><strong>Título:</strong></div>
+                        <div class="col-lg-9">{{job.titulo}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"><strong>Descrição:</strong></div>
+                        <div class="col-lg-9">{{job.descricao}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"><strong>Data Início:</strong></div>
+                        <div class="col-lg-9">{{job.data_inicio}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"><strong>Data Fim:</strong></div>
+                        <div class="col-lg-9">{{job.data_fim}}</div>
+                    </div>
+                    <br>
+                    <div class="panel-title">Solicitações de Candidatos para a vaga</div>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let candidato of job.candidates" class="odd gradeX">
+                            <td class="center">{{candidato.id}}</td>
+                            <td class="center">{{candidato.nome}}</td>
+                            <td class="center">{{candidato.cpf}}</td>
+                            <td class="center">{{candidato.email}}</td>
+                            <td class="center"><a href="/candidates/{{candidato.id}}">Visualizar</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn btn-default"><a href="/jobs">Voltar</a></div>
+                    <div class="btn btn-default"><a href="/jobs/{{job.id}}/edit">Editar</a></div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</main>
